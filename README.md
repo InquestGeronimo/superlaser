@@ -20,7 +20,7 @@ While most tutorials emphasize the use of the dashboard console on RunPod's site
 
 # Setup RunPod <img align="center" width="30" height="29" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmN3YWdmMjgyNTJrM3lzYmFlcjZ4YnhwemN4ODN1MXdtNnJkeWRnNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oKIPuM1xeVUMZqbq8/giphy.gif">
 
-Before spinning up a serverless endpoint, let's first create a template that we'll pass into the endpoint during staging. Configuree your template with the following attributes:
+Before spinning up a serverless endpoint, let's first create a template that we'll pass into the endpoint during staging. Configure your template with the following attributes:
 
 #### Configure Template
 ```py
@@ -64,6 +64,7 @@ print(endpoint().text)
 
 #### Call Endpoint
 
+After your endpoint is staged, we can now make API requests 
 ```py
 superlaser = SuperLaser(endpoint_id="endpoint-id", model_name="mistralai/Mistral-7B-v0.1")
 superlaser("Why is SuperLaser awesome?")

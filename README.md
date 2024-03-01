@@ -6,10 +6,6 @@
   <em>SuperLaser</em>
 </h1>
 
-<h5 align="center">
-  ⚠️<em>Under Active Development</em> ⚠️
-</h5>
-
 Install runpodctl on Linux:
 
 ```bash

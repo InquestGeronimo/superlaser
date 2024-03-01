@@ -6,7 +6,7 @@
   <em>SuperLaser</em>
 </h1>
 
-**SuperLaser** provides a comprehensive suite of tools and scripts designed for deploying Large Language Models (LLMs) onto RunPod's serverless infrastructure. The deployment utilizes the vLLM engine as the backend during runtime, ensuring memory-efficient and high-performance inference capabilities.
+**SuperLaser** provides a comprehensive suite of tools and scripts designed for deploying Large Language Models (LLMs) onto RunPod's pod and serverless infrastructure. The deployment utilizes the vLLM engine as the backend during runtime, ensuring memory-efficient and high-performance inference capabilities.
 
 While most tutorials emphasize the use of RunPod's console to configure a deployment, this repository offers additional functionalities. It enables users to create templates, generate pods or serverless endpoints, and execute API requests programmatically from Python.
 

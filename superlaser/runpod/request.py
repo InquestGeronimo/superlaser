@@ -10,8 +10,8 @@ class RunpodHandler(DataHandler):
         
         self.api_key = api_key or os.getenv('RUNPOD_API_KEY')
         if not self.api_key:
-            raise ApiKeyError
-        self.url = f"https://api.runpod.io/graphql?api_key={api_key}"
+            raise ApiKeyError()
+        self.url = f"https://api.runpod.io/graphql?api_key={self.api_key}"
         self.data = data
         self.method = "POST"
         self.headers = {"content-type": "application/json"}

@@ -2,7 +2,7 @@ import os
 import requests
 
 from .data import DataHandler
-from ..utils.errata import ErrorHandler as fixer
+from ..utils.errata import ApiKeyError
 
 
 class RunpodHandler(DataHandler):
@@ -10,7 +10,7 @@ class RunpodHandler(DataHandler):
         
         self.api_key = api_key or os.getenv('RUNPOD_API_KEY')
         if not self.api_key:
-            raise ValueError(fixer.api_key)
+            raise ApiKeyError
         self.url = f"https://api.runpod.io/graphql?api_key={api_key}"
         self.data = data
         self.method = "POST"

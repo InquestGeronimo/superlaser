@@ -1,7 +1,9 @@
-class ErrorHandler(Exception):
+class ApiKeyError(Exception):
     """
-    Custom error handler for specific ValueError instances.
+    Raised when API key is not provided.
     """
 
-    api_key = """API key not provided. Please set the RUNPOD_API_KEY \
-    environment variable for proper API security."""
+    def __init__(self):
+        super().__init__(
+            "API key not provided. Please set the RUNPOD_API_KEY environment variable for proper API security."
+        )

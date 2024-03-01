@@ -12,7 +12,7 @@ VERSION = "0.0.1"
 AUTHOR = "InquestGeronimo"
 EMAIL = "rcostanl@gmail.com"
 LD_CONTENT_TYPE = "text/markdown"
-DESCRIPTION = "LLM deployment with vLLM on a serverless RunPod endpoint."
+DESCRIPTION = "An MLOps library for LLM deployment w/ the vLLM engine on RunPod's infra."
 LICENSE = "Apache-2.0 license"
 PACKAGES = find_packages()
 DEPENDENCIES = ["huggingface_hub>=0.20.3", "runpod>=1.6.2", "openai>=1.13.3"]

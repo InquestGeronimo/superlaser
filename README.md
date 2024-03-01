@@ -18,7 +18,7 @@ While most tutorials emphasize the use of the dashboard console on RunPod's site
 - **Cost-Effective**: Optimize resource usage and reduce costs with serverless architecture.
 - **Easy Integration**: Seamless integration with existing LLM workflows.
 
-# Setup RunPod <img align="right" width="75" height="75" src="./img/runpod_logo.png">
+# RunPod Config <img align="right" width="75" height="75" src="./img/runpod_logo.png">
 
 Before spinning up a serverless endpoint, let's first create a template that we'll pass into the endpoint during staging. Configure your template with the following attributes:
 

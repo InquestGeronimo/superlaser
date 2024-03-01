@@ -37,7 +37,9 @@ template_data = runpod.set_template(
     container_disk=15,
     volume_disk=15,
 )
-
+```
+Push template to your RunPod account:
+```py
 template = runpod(api_key=api_key, data=template_data)
 print(template().text)
 ```
@@ -56,14 +58,17 @@ endpoint_data = runpod.create_serverless_endpoint(
     workers_max=1,
     workers_min=0,
 )
+```
 
+Boot up your endpoint on RunPod:
+```py
 endpoint = runpod(api_key=api_key, data=endpoint_data)
 print(endpoint().text)
 ```
 
 # Call Endpoint <img align="right" width="225" height="75" src="./img/vllm-logo.png">
 
-After your endpoint is staged, it will return a dictionary with your endpoint ID. Pass this endpoint ID to start making API requests.
+After your endpoint is staged, it will return a dictionary with your endpoint ID. Pass this endpoint ID to the `SuperLaser` client and start making API requests!
 ```py
 superlaser = SuperLaser(endpoint_id="endpoint-id", model_name="mistralai/Mistral-7B-v0.1")
 superlaser("Why is SuperLaser awesome?")

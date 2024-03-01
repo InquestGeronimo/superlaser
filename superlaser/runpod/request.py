@@ -1,10 +1,16 @@
+import os
 import requests
 
-from .utils import DataHandler
+from .data import DataHandler
+from ..utils.errata import ErrorHandler as fixer
 
 
 class RunpodHandler(DataHandler):
-    def __init__(self, api_key, data=None):
+    def __init__(self, api_key=None, data=None):
+        
+        self.api_key = api_key or os.getenv('RUNPOD_API_KEY')
+        if not self.api_key:
+            raise ValueError(fixer.api_key)
         self.url = f"https://api.runpod.io/graphql?api_key={api_key}"
         self.data = data
         self.method = "POST"

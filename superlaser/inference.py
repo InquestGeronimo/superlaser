@@ -1,9 +1,13 @@
 from openai import OpenAI
 import os
 
+from .utils.errata import ErrorHandler as fixer
 
 class SuperLaser:
     def __init__(self, endpoint_id, model_name):
+        api_key = os.getenv('RUNPOD_API_KEY')
+        if not api_key:
+            raise ValueError(fixer.api_key)
         self.client = OpenAI(
             api_key=os.environ.get("RUNPOD_API_KEY"),
             base_url=f"https://api.runpod.ai/v2/{endpoint_id}/openai/v1",

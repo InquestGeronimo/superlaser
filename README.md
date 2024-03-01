@@ -23,9 +23,17 @@ While most tutorials emphasize the use of RunPod's console to configure a deploy
 
 # RunPod Config <img align="right" width="75" height="75" src="./img/runpod-logo.png">
 
+First step is to obtain an API key from RunPod. Go to your account's console, in the `Settings` section, click on `API Keys`.
+
+After obtaining a key, set it as an environment variable:
+
+```bash
+export RUNPOD_API_KEY=<YOUR-API-KEY>
+```
+#### Configure Template
+
 Before spinning up a serverless endpoint, let's first create a template that we'll pass into the endpoint during staging. Configure your template with the following attributes:
 
-#### Configure Template
 ```py
 import os
 from superlaser import RunpodHandler as runpod

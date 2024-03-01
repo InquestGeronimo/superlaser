@@ -61,9 +61,9 @@ endpoint = runpod(api_key=api_key, data=endpoint_data)
 print(endpoint().text)
 ```
 
-#### Call Endpoint <img align="right" width="200" height="75" src="./img/vllm-logo.png">
+# Call Endpoint <img align="right" width="225" height="75" src="./img/vllm-logo.png">
 
-After your endpoint is staged, we can now make API requests 
+After your endpoint is staged, it will return a dictionary with your endpoint ID. Pass this endpoint ID to start making API requests.
 ```py
 superlaser = SuperLaser(endpoint_id="endpoint-id", model_name="mistralai/Mistral-7B-v0.1")
 superlaser("Why is SuperLaser awesome?")

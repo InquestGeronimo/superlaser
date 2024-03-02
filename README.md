@@ -7,18 +7,15 @@
 </h1>
 
 <h5 align="center">
-  ⚠️<em>Not yet eady for primetime</em> ⚠️
+  ⚠️<em>Not yet ready for primetime</em> ⚠️
 </h5>
 
-**SuperLaser** provides a comprehensive suite of tools and scripts designed for deploying Large Language Models (LLMs) onto [RunPod's](https://github.com/runpod) pod and serverless infrastructure. Additionally, the deployment utilizes the [vLLM](https://github.com/vllm-project/vllm) engine as the backend during runtime, ensuring memory-efficient and high-performance inference capabilities.
-
-While most tutorials emphasize the use of RunPod's console to configure a deployment, this repository offers additional functionalities. It enables users to create templates, configure pods and/or serverless endpoints, and execute API requests programmatically from Python.
-
+**SuperLaser** provides a comprehensive suite of tools and scripts designed for deploying Large Language Models (LLMs) onto [RunPod's](https://github.com/runpod) pod and serverless infrastructure. Additionally, the deployment utilizes a containerized [vLLM](https://github.com/vllm-project/vllm) engine during runtime, ensuring memory-efficient and high-performance inference capabilities.
 
 # Features <img align="center" width="30" height="29" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTBqaWNrcGxnaTdzMGRzNTN0bGI2d3A4YWkxajhsb2F5MW84Z2dxaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26tOZ42Mg6pbTUPHW/giphy.gif">
 
-- **Scalable Deployment**: Easily scale your LLM inference tasks with RunPod serverless capabilities.
-- **Cost-Effective**: Optimize resource usage and reduce costs with serverless architecture.
+- **Scalable Deployment**: Easily scale your LLM inference tasks with vLLM and RunPod serverless capabilities.
+- **Cost-Effective**: Optimize resource and hardware usage: tensor parallelism
 - **Easy Integration**: Seamless integration with existing LLM workflows.
 
 # Install <img align="center" width="30" height="29" src="https://media.giphy.com/media/sULKEgDMX8LcI/giphy.gif">

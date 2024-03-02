@@ -106,7 +106,7 @@ superlaser = SuperLaser(
 ```py
 invoke = SuperLaser(api_key, endpoint_id, model_name, stream=True, chat=False)
 
-response_stream = invoke("To be or not to be...")
+response_stream = invoke("To be or not to be")
 for response in response_stream:
     print(response.choices[0].text or "", end="", flush=True)
 ```

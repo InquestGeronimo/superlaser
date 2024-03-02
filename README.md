@@ -59,7 +59,7 @@ template_data = runpod.set_template(
 ```
 Push template to your RunPod account:
 ```py
-template = runpod(api_key=api_key, data=template_data)
+template = runpod(api_key, data=template_data)
 print(template().text)
 ```
 #### Configure Endpoint
@@ -81,7 +81,7 @@ endpoint_data = runpod.create_serverless_endpoint(
 
 Boot up your endpoint on RunPod:
 ```py
-endpoint = runpod(api_key=api_key, data=endpoint_data)
+endpoint = runpod(api_key, data=endpoint_data)
 print(endpoint().text)
 ```
 
@@ -93,7 +93,7 @@ The SuperLaser client wraps the OpenAI API including chat and streaming options.
 
 ```py
 invoke = SuperLaser(
-  api_key=api_key,
+  api_key,
   endpoint_id="endpoint-id", 
   model_name="mistralai/Mistral-7B-v0.1",
   stream=False, # default
@@ -104,10 +104,8 @@ invoke = SuperLaser(
 #### Streaming
 
 ```py
-sampling_params = {
-    "temperature": 0.8,
-    "max_tokens": 50
-}
+# make sure to change `stream` argument to True
+sampling_params = {"temperature": 0.8, "max_tokens": 50}
 
 response_stream = invoke("To be or not to be", **sampling_params)
 
@@ -118,9 +116,7 @@ for response in response_stream:
 #### Non-Streaming
 
 ```py
-sampling_params = {"temperature": 0.8,
-    "max_tokens": 50
-}
+sampling_params = {"temperature": 0.8, "max_tokens": 50}
 
 invoke("To be or not to be", **sampling_params)
 ```

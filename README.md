@@ -48,7 +48,7 @@ from superlaser import RunpodHandler as runpod
 api_key = os.environ.get("RUNPOD_API_KEY")
 
 template_data = runpod.set_template(
-    serverless="true",                                      # false spins up a pod instead
+    serverless="true",                                      
     template_name="superlaser-inf",                         # Give a name to your template
     container_image="runpod/worker-vllm:0.3.1-cuda12.1.0",  # Docker image stub
     model_name="mistralai/Mistral-7B-v0.1",                 # Hugging Face model stub

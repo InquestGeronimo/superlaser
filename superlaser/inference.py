@@ -3,7 +3,7 @@ from openai import OpenAI
 from .utils.errata import ApiKeyError
 
 
-class SuperLaser:
+class Client:
     def __init__(self, api_key, endpoint_id):
         self.api_key = api_key or os.getenv("RUNPOD_API_KEY")
         if not api_key:

@@ -81,7 +81,7 @@ endpoint_data = runpod.create_serverless_endpoint(
 
 Boot up your endpoint on RunPod:
 ```py
-endpoint = runpod(api_key=api_key, data=endpoint_data, api_key)
+endpoint = runpod(api_key=api_key, data=endpoint_data)
 print(endpoint().text)
 ```
 

@@ -18,32 +18,28 @@ class SuperLaser:
 
     def __call__(self, prompt_or_user_message, role=None, sampling_params=None):
         if self.chat:
-            return self._handle_chat_completion(
-                prompt_or_user_message, role, sampling_params
-            )
+            return self._handle_chat_completion(prompt_or_user_message, role, sampling_params)
         else:
-            return self._handle_non_chat_completion(
-                prompt_or_user_message, sampling_params
-            )
+            return self._handle_non_chat_completion(prompt_or_user_message, sampling_params)
 
     def _handle_chat_completion(self, user_message, role=None, sampling_params=None):
         if not self.chat:
             raise RoleError()
-
+        
         messages = [{"role": role or "user", "content": user_message}]
         if self.stream:
             response_stream = self.client.chat.completions.create(
                 model=self.model_name,
                 messages=messages,
                 stream=True,
-                sampling_params=sampling_params,
+                sampling_params=sampling_params
             )
             return response_stream
         else:
             response = self.client.chat.completions.create(
                 model=self.model_name,
                 messages=messages,
-                sampling_params=sampling_params,
+                sampling_params=sampling_params
             )
             return response.choices[0].message.content
 
@@ -53,11 +49,13 @@ class SuperLaser:
                 model=self.model_name,
                 prompt=prompt,
                 stream=True,
-                sampling_params=sampling_params,
+                sampling_params=sampling_params
             )
             return response_stream
         else:
             response = self.client.completions.create(
-                model=self.model_name, prompt=prompt, sampling_params=sampling_params
+                model=self.model_name,
+                prompt=prompt,
+                sampling_params=sampling_params
             )
             return response.choices[0].text

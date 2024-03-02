@@ -32,7 +32,9 @@ export RUNPOD_API_KEY=<YOUR-API-KEY>
 ```
 #### Configure Template
 
-Before spinning up a serverless endpoint, let's first create a template that we'll pass into the endpoint during staging. Configure your template with the following attributes:
+Before spinning up a serverless endpoint, let's first configure a template that we'll pass into the endpoint during staging. The template allows you to select a serverless or pod asset, your docker image name, and the container's and volume's disk space.
+
+Configure your template with the following attributes:
 
 ```py
 import os
@@ -41,12 +43,12 @@ from superlaser import RunpodHandler as runpod
 api_key = os.environ.get("RUNPOD_API_KEY")
 
 template_data = runpod.set_template(
-    serverless="true",
-    template_name="superlaser-inf",
-    container_image="runpod/worker-vllm:0.3.1-cuda12.1.0",
-    model_name="mistralai/Mistral-7B-v0.1",
-    max_model_length=340,
-    container_disk=15,
+    serverless="true",                                      # false spins up a pod instead
+    template_name="superlaser-inf",                         # Give a name to your template
+    container_image="runpod/worker-vllm:0.3.1-cuda12.1.0",  # Docker image stub
+    model_name="mistralai/Mistral-7B-v0.1",                 # Hugging Face model stub
+    max_model_length=340,                                   # Maximum number of tokens for the engine to handle per request.
+    container_disk=15,                                      
     volume_disk=15,
 )
 ```

@@ -81,7 +81,7 @@ endpoint_data = runpod.create_serverless_endpoint(
 
 Boot up your endpoint on RunPod:
 ```py
-endpoint = runpod(api_key=api_key, data=endpoint_data)
+endpoint = runpod(api_key=api_key, data=endpoint_data, api_key)
 print(endpoint().text)
 ```
 
@@ -89,6 +89,6 @@ print(endpoint().text)
 
 After your endpoint is staged, it will return a dictionary with your endpoint ID. Pass this endpoint ID to the `SuperLaser` client and start making API requests!
 ```py
-superlaser = SuperLaser(endpoint_id="endpoint-id", model_name="mistralai/Mistral-7B-v0.1")
+superlaser = SuperLaser(endpoint_id="endpoint-id", model_name="mistralai/Mistral-7B-v0.1", api_key=api_key)
 superlaser("Why is SuperLaser awesome?")
 ```

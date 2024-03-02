@@ -31,7 +31,7 @@ class SuperLaser:
                 temperature=0,
                 max_tokens=100,
                 stream=True,
-            )
+            )     
 
             for response in response_stream:
                 print(response.choices[0].delta.content or "", end="", flush=True)

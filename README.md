@@ -87,18 +87,23 @@ print(endpoint().text)
 
 # Call Endpoint <img align="right" width="225" height="75" src="./img/vllm-logo.png">
 
-After your endpoint is staged, it will return a dictionary with your endpoint ID. Pass this endpoint ID to the `SuperLaser` client and start making API requests!
+After your endpoint is staged, it will return a dictionary with your endpoint ID. Pass this endpoint ID to the `OpenAI` client and start making API requests!
 
 ```py
-from superlaser import SuperLaser
+from openai import OpenAI
 
-client = SuperLaser(api_key, endpoint_id="endpoint-id")
+endpoint_id = "you-endpoint-id"
+
+client = OpenAI(
+    api_key=api_key,
+    base_url=f"https://api.runpod.ai/v2/{endpoint_id}/openai/v1",
+)
 ```
 
 #### Chat w/ Streaming
 
 ```py
-response_stream = client.chat.completions.create(
+stream = client.chat.completions.create(
     model="mistralai/Mistral-7B-Instruct-v0.1",
     messages=[{"role": "user", "content": "To be or not to be"}],
     temperature=0,
@@ -106,14 +111,14 @@ response_stream = client.chat.completions.create(
     stream=True,
 )
 
-for chunk in response_stream:
+for chunk in stream:
     print(chunk.choices[0].delta.content or "", end="", flush=True)
 ```
 
 #### Completion w/ Streaming
 
 ```py
-response_stream = client.completions.create(
+stream = client.completions.create(
     model="meta-llama/Llama-2-7b-hf",
     prompt="To be or not to be",
     temperature=0,
@@ -121,6 +126,6 @@ response_stream = client.completions.create(
     stream=True,
 )
 
-for response in response_stream:
+for response in stream:
     print(response.choices[0].text or "", end="", flush=True)
 ```

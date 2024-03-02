@@ -99,7 +99,7 @@ client = SuperLaser(api_key, endpoint_id="endpoint-id")
 
 ```py
 response_stream = client.chat.completions.create(
-    model="mistralai/Mistral-7B-v0.1",
+    model="mistralai/Mistral-7B-Instruct-v0.1",
     messages=[{"role": "user", "content": "To be or not to be"}],
     temperature=0,
     max_tokens=100,
@@ -114,7 +114,7 @@ for chunk in response_stream:
 
 ```py
 response_stream = client.completions.create(
-    model="mistralai/Mistral-7B-v0.1",
+    model="meta-llama/Llama-2-7b-hf",
     prompt="To be or not to be",
     temperature=0,
     max_tokens=100,

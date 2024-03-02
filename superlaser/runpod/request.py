@@ -7,8 +7,7 @@ from ..utils.errata import ApiKeyError
 
 class RunpodHandler(DataHandler):
     def __init__(self, api_key=None, data=None):
-        
-        self.api_key = api_key or os.getenv('RUNPOD_API_KEY')
+        self.api_key = api_key or os.getenv("RUNPOD_API_KEY")
         if not self.api_key:
             raise ApiKeyError()
         self.url = f"https://api.runpod.io/graphql?api_key={self.api_key}"

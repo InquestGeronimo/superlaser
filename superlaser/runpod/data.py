@@ -126,4 +126,3 @@ class DataHandler:
         }
 
         return data
-

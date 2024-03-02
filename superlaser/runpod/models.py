@@ -12,7 +12,7 @@ class LLMSettings(BaseModel):
     TRUST_REMOTE_CODE: int = 0
     SEED: int = 0
     KV_CACHE_DTYPE: str = "auto"
-    DTYPE: constr(regex=r'auto|half|float16|bfloat16|float|float32') = "auto"
+    DTYPE: constr(regex=r"auto|half|float16|bfloat16|float|float32") = "auto"
 
     class Config:
         allow_population_by_field_name = True
@@ -52,7 +52,7 @@ class StreamingBatchSizeSettings(BaseModel):
 class OpenAISettings(BaseModel):
     RAW_OPENAI_OUTPUT: int = 1
     OPENAI_SERVED_MODEL_NAME_OVERRIDE: str = None
-    OPENAI_RESPONSE_ROLE: constr(regex=r'assistant|other_role') = "assistant"
+    OPENAI_RESPONSE_ROLE: constr(regex=r"assistant|other_role") = "assistant"
 
     class Config:
         allow_population_by_field_name = True
@@ -80,6 +80,11 @@ class AllSettings(BaseModel):
 
     @root_validator
     def check_settings(cls, values):
-        if values["LLM_Settings"].LOAD_FORMAT == "auto" and values["LLM_Settings"].MODEL_REVISION is not None:
-            raise ValueError("MODEL_REVISION cannot be specified when LOAD_FORMAT is set to 'auto'")
+        if (
+            values["LLM_Settings"].LOAD_FORMAT == "auto"
+            and values["LLM_Settings"].MODEL_REVISION is not None
+        ):
+            raise ValueError(
+                "MODEL_REVISION cannot be specified when LOAD_FORMAT is set to 'auto'"
+            )
         return values

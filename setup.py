@@ -8,7 +8,7 @@ with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     LONG_DESCRIPTION = "\n" + fh.read()
 
 NAME = "superlaser"
-VERSION = "0.0.1"
+VERSION = "0.0.5"
 AUTHOR = "InquestGeronimo"
 EMAIL = "rcostanl@gmail.com"
 LD_CONTENT_TYPE = "text/markdown"
@@ -17,7 +17,7 @@ DESCRIPTION = (
 )
 LICENSE = "Apache-2.0 license"
 PACKAGES = find_packages()
-DEPENDENCIES = ["huggingface_hub>=0.20.3", "runpod>=1.6.2", "openai>=1.13.3"]
+DEPENDENCIES = ["huggingface_hub>=0.21.1", "openai>=1.13.3"]
 KEYWORDS = [
     "inference",
     "server",

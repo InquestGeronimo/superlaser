@@ -21,6 +21,14 @@ While most tutorials emphasize the use of RunPod's console to configure a deploy
 - **Cost-Effective**: Optimize resource usage and reduce costs with serverless architecture.
 - **Easy Integration**: Seamless integration with existing LLM workflows.
 
+# Install <img align="center" width="30" height="29" src="https://media.giphy.com/media/sULKEgDMX8LcI/giphy.gif">
+
+```bash
+pip install superlaser
+```
+Before you begin, ensure you have:
+
+- A RunPod account.
 # RunPod Config <img align="right" width="75" height="75" src="./img/runpod-logo.png">
 
 First step is to obtain an API key from RunPod. Go to your account's console, in the `Settings` section, click on `API Keys`.
@@ -87,26 +95,3 @@ After your endpoint is staged, it will return a dictionary with your endpoint ID
 superlaser = SuperLaser(endpoint_id="endpoint-id", model_name="mistralai/Mistral-7B-v0.1")
 superlaser("Why is SuperLaser awesome?")
 ```
-
-<!-- ### Prerequisites
-
-Before you begin, ensure you have:
-
-- A RunPod account.
-- The Runpod CLI `runpodctl`
-    - on Linux:
-
-```bash
-wget -qO- cli.runpod.net | sudo bash
-```
-
-# Install <img align="center" width="30" height="29" src="https://media.giphy.com/media/sULKEgDMX8LcI/giphy.gif">
-
-
-```bash
-pip install superlaser
-```
-
-# Inference <img align="center" width="30" height="29" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXV1bWFyMWxkY3JocjE1ZDMxMWZ5OHZtejFkbHpuZXdveTV3Z3BiciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/bGgsc5mWoryfgKBx1u/giphy.gif"> -->
-
-

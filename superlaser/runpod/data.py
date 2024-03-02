@@ -49,7 +49,7 @@ class DataHandler:
         return data
 
     @staticmethod
-    def create_serverless_endpoint(
+    def set_endpoint(
         gpu_ids,
         idle_timeout,
         name,

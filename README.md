@@ -68,7 +68,7 @@ print(template().text)
 After your template is created, it will return a data dicitionary that includes your template ID. We will pass this template id when configuring the serverless endpoint in the section below:
 
 ```py
-endpoint_data = runpod.create_serverless_endpoint(
+endpoint_data = runpod.set_endpoint(
     gpu_ids="AMPERE_24", # options for gpuIds are "AMPERE_16,AMPERE_24,AMPERE_48,AMPERE_80,ADA_24"
     idle_timeout=5,
     name="vllm_endpoint",

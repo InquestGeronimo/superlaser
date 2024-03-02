@@ -114,6 +114,6 @@ for response in response_stream:
 #### Not Streaming
 
 ```py
-invoke = SuperLaser(api_key, endpoint_id, model_name, stream=True, chat=False)
+invoke = SuperLaser(api_key, endpoint_id, model_name, stream=False, chat=False)
 invoke("To be or not to be")
 ```

@@ -92,7 +92,7 @@ After your endpoint is staged, it will return a dictionary with your endpoint ID
 The SuperLaser client wraps the OpenAI API including chat and streaming options.
 
 ```py
-superlaser = SuperLaser(
+invoke = SuperLaser(
   api_key=api_key,
   endpoint_id="endpoint-id", 
   model_name="mistralai/Mistral-7B-v0.1",
@@ -104,14 +104,13 @@ superlaser = SuperLaser(
 #### Streaming
 
 ```py
-invoke = SuperLaser(api_key, endpoint_id, model_name, stream=True, chat=False)
-
 sampling_params = {
     "temperature": 0.8,
     "max_tokens": 50
 }
 
 response_stream = invoke("To be or not to be", **sampling_params)
+
 for response in response_stream:
     print(response.choices[0].text or "", end="", flush=True)
 ```
@@ -119,8 +118,6 @@ for response in response_stream:
 #### Non-Streaming
 
 ```py
-invoke = SuperLaser(api_key, endpoint_id, model_name, stream=False, chat=False)
-
 sampling_params = {
     "temperature": 0.8,
     "max_tokens": 50

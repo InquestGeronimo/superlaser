@@ -4,7 +4,7 @@ from .utils.errata import RoleError, ApiKeyError
 
 
 class SuperLaser:
-    def __init__(self, api_key, endpoint_id, model_name, stream=False, chat=True):
+    def __init__(self, api_key, endpoint_id, model_name, stream=False, chat=False):
         self.api_key = api_key or os.getenv("RUNPOD_API_KEY")
         if not api_key:
             raise ApiKeyError()

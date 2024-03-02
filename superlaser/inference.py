@@ -5,7 +5,7 @@ from .utils.errata import ApiKeyError
 
 
 class SuperLaser:
-    def __init__(self, api_key, endpoint_id, model_name, stream=True, chat=True):
+    def __init__(self, api_key, endpoint_id, model_name, stream=False, chat=True):
         self.api_key = api_key or os.getenv("RUNPOD_API_KEY")
         if not api_key:
             raise ApiKeyError()
@@ -17,13 +17,13 @@ class SuperLaser:
         self.stream = stream
         self.chat = chat
 
-    def __call__(self, prompt):
+    def __call__(self, prompt_or_user_message):
         if self.chat:
-            self._chat_completion(prompt)
+            return self._handle_chat_completion(prompt_or_user_message)
         else:
-            self._non_chat_completion(prompt)
+            return self._handle_non_chat_completion(prompt_or_user_message)
 
-    def _chat_completion(self, user_message):
+    def _handle_chat_completion(self, user_message):
         if self.stream:
             response_stream = self.client.chat.completions.create(
                 model=self.model_name,
@@ -31,10 +31,8 @@ class SuperLaser:
                 temperature=0,
                 max_tokens=100,
                 stream=True,
-            )     
-
-            for response in response_stream:
-                print(response.choices[0].delta.content or "", end="", flush=True)
+            )
+            return response_stream
         else:
             response = self.client.chat.completions.create(
                 model=self.model_name,
@@ -42,10 +40,9 @@ class SuperLaser:
                 temperature=0,
                 max_tokens=100,
             )
+            return response.choices[0].message.content
 
-            print(response.choices[0].message.content)
-
-    def _non_chat_completion(self, prompt):
+    def _handle_non_chat_completion(self, prompt):
         if self.stream:
             response_stream = self.client.completions.create(
                 model=self.model_name,
@@ -54,9 +51,7 @@ class SuperLaser:
                 max_tokens=100,
                 stream=True,
             )
-
-            for response in response_stream:
-                print(response.choices[0].text or "", end="", flush=True)
+            return response_stream
         else:
             response = self.client.completions.create(
                 model=self.model_name,
@@ -64,5 +59,4 @@ class SuperLaser:
                 temperature=0,
                 max_tokens=100,
             )
-
-            print(response.choices[0].text)
+            return response.choices[0].text

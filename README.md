@@ -89,39 +89,36 @@ print(endpoint().text)
 
 After your endpoint is staged, it will return a dictionary with your endpoint ID. Pass this endpoint ID to the `SuperLaser` client and start making API requests!
 
-The SuperLaser client wraps the OpenAI API including to include chat and streaming options.
-
 ```py
-invoke = SuperLaser(
-  api_key,
-  endpoint_id="endpoint-id", 
-  model_name="mistralai/Mistral-7B-v0.1",
-  stream=False, # default
-  chat=False    # default
-)
+client = SuperLaser(api_key, endpoint_id="endpoint-id")
 ```
 
-#### Streaming
+#### Chat w/ Streaming
 
 ```py
-# make sure to change `stream` argument to True
-sampling_params = {"temperature": 0.8, "max_tokens": 50}
+response_stream = client.chat.completions.create(
+    model="mistralai/Mistral-7B-v0.1",
+    messages=[{"role": "user", "content": "To be or not to be"}],
+    temperature=0,
+    max_tokens=100,
+    stream=True,
+)
 
-response_stream = invoke("To be or not to be", **sampling_params)
+for chunk in response_stream:
+    print(chunk.choices[0].delta.content or "", end="", flush=True)
+```
+
+#### Completion w/ Streaming
+
+```py
+response_stream = client.completions.create(
+    model="mistralai/Mistral-7B-v0.1",
+    prompt="To be or not to be",
+    temperature=0,
+    max_tokens=100,
+    stream=True,
+)
 
 for response in response_stream:
     print(response.choices[0].text or "", end="", flush=True)
 ```
-
-#### Non-Streaming
-
-```py
-sampling_params = {"temperature": 0.8, "max_tokens": 50}
-
-invoke("To be or not to be", **sampling_params)
-```
-
-For a full list of Sampling Params refer [here](https://github.com/runpod-workers/worker-vllm?tab=readme-ov-file#sampling-parameters).
-
-
-⚠️*Inference with chat completion in development*⚠️

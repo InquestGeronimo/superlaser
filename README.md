@@ -10,13 +10,13 @@
   ⚠️<em>Not yet ready for primetime</em> ⚠️
 </h5>
 
-**SuperLaser** provides a comprehensive suite of tools and scripts designed for deploying LLMs onto [RunPod's](https://github.com/runpod) pod and serverless infrastructure. Additionally, the deployment utilizes a containerized [vLLM](https://github.com/vllm-project/vllm) engine during runtime, ensuring memory-efficient and high-performance inference capabilities.
+**SuperLaser** provides a comprehensive suite of tools and scripts designed for deploying LLMs onto [RunPod's](https://github.com/runpod) serverless infrastructure. Additionally, the deployment utilizes a containerized [vLLM](https://github.com/vllm-project/vllm) engine during runtime, ensuring memory-efficient and high-performance inference capabilities.
 
 # Features <img align="center" width="30" height="29" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTBqaWNrcGxnaTdzMGRzNTN0bGI2d3A4YWkxajhsb2F5MW84Z2dxaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26tOZ42Mg6pbTUPHW/giphy.gif">
 
 - **Scalable Deployment**: Easily scale your LLM inference tasks with vLLM and RunPod serverless capabilities.
 - **Cost-Effective**: Optimize resource and hardware usage: tensor parallelism and other GPU assets.
-- **Uses OpenAI's API**: Use the SuperLaser client for with chat, non-chat, and streaming options.
+- **Uses OpenAI's API**: Use the OpenAI client for chat, completion, and streaming options.
 
 # Install <img align="center" width="30" height="29" src="https://media.giphy.com/media/sULKEgDMX8LcI/giphy.gif">
 
@@ -37,9 +37,7 @@ export RUNPOD_API_KEY=<YOUR-API-KEY>
 ```
 ### Configure Template
 
-Before spinning up a serverless endpoint, let's first configure a template that we'll pass into the endpoint during staging. The template allows you to select a serverless or pod asset, your docker image name, and the container's and volume's disk space.
-
-Configure your template with the following attributes:
+Before spinning up a serverless endpoint, let's first configure a template that we'll pass into the endpoint during staging. The template allows you to set vLLMs Docker image, model, and the container's and volume's disk space:
 
 ```py
 import os

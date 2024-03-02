@@ -57,7 +57,7 @@ template_data = runpod.set_template(
     volume_disk=15,
 )
 ```
-### Push Template to RunPod
+### Create Template on RunPod
 
 ```py
 template = runpod(api_key, data=template_data)

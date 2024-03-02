@@ -90,6 +90,8 @@ print(endpoint().text)
 After your endpoint is staged, it will return a dictionary with your endpoint ID. Pass this endpoint ID to the `SuperLaser` client and start making API requests!
 
 ```py
+from superlaser import SuperLaser
+
 client = SuperLaser(api_key, endpoint_id="endpoint-id")
 ```
 

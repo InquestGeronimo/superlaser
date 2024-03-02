@@ -96,7 +96,7 @@ invoke = SuperLaser(
   api_key=api_key,
   endpoint_id="endpoint-id", 
   model_name="mistralai/Mistral-7B-v0.1",
-  stream=True,
+  stream=False,
   chat=False
 )
 ```
@@ -118,10 +118,11 @@ for response in response_stream:
 #### Non-Streaming
 
 ```py
-sampling_params = {
-    "temperature": 0.8,
+sampling_params = {"temperature": 0.8,
     "max_tokens": 50
 }
 
 invoke("To be or not to be", **sampling_params)
 ```
+
+*Inference with chat completion in development*

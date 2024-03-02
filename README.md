@@ -96,8 +96,8 @@ invoke = SuperLaser(
   api_key=api_key,
   endpoint_id="endpoint-id", 
   model_name="mistralai/Mistral-7B-v0.1",
-  stream=False,
-  chat=False
+  stream=False, # default
+  chat=False    # default
 )
 ```
 

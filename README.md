@@ -89,7 +89,7 @@ print(endpoint().text)
 
 After your endpoint is staged, it will return a dictionary with your endpoint ID. Pass this endpoint ID to the `SuperLaser` client and start making API requests!
 
-The SuperLaser client wraps the OpenAI API including chat and streaming options.
+The SuperLaser client wraps the OpenAI API including to include chat and streaming options.
 
 ```py
 invoke = SuperLaser(
@@ -121,4 +121,7 @@ sampling_params = {"temperature": 0.8, "max_tokens": 50}
 invoke("To be or not to be", **sampling_params)
 ```
 
-*Inference with chat completion in development*
+For a full list of Sampling Params refer [here](https://github.com/runpod-workers/worker-vllm?tab=readme-ov-file#sampling-parameters).
+
+
+⚠️*Inference with chat completion in development*⚠️

@@ -15,8 +15,8 @@
 # Features <img align="center" width="30" height="29" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTBqaWNrcGxnaTdzMGRzNTN0bGI2d3A4YWkxajhsb2F5MW84Z2dxaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26tOZ42Mg6pbTUPHW/giphy.gif">
 
 - **Scalable Deployment**: Easily scale your LLM inference tasks with vLLM and RunPod serverless capabilities.
-- **Cost-Effective**: Optimize resource and hardware usage: tensor parallelism
-- **Easy Integration**: Seamless integration with existing LLM workflows.
+- **Cost-Effective**: Optimize resource and hardware usage: tensor parallelism and other GPU assets.
+- **Uses OpenAI's API**: Use the SuperLaser client for with chat, non-chat, and streaming options.
 
 # Install <img align="center" width="30" height="29" src="https://media.giphy.com/media/sULKEgDMX8LcI/giphy.gif">
 
@@ -88,7 +88,16 @@ print(endpoint().text)
 # Call Endpoint <img align="right" width="225" height="75" src="./img/vllm-logo.png">
 
 After your endpoint is staged, it will return a dictionary with your endpoint ID. Pass this endpoint ID to the `SuperLaser` client and start making API requests!
+
+The SuperLaser client wraps the OpenAI API including chat and streaming options.
+
 ```py
-superlaser = SuperLaser(endpoint_id="endpoint-id", model_name="mistralai/Mistral-7B-v0.1", api_key=api_key)
+superlaser = SuperLaser(
+  api_key=api_key,
+  endpoint_id="endpoint-id", 
+  model_name="mistralai/Mistral-7B-v0.1",
+  stream=True,
+  chat=False 
+)
 superlaser("Why is SuperLaser awesome?")
 ```

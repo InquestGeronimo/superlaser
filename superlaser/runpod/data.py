@@ -92,7 +92,7 @@ class DataHandler:
         return data
 
     @staticmethod
-    def check_endpoint_status():
+    def check_endpoint():
         data = {
             "query": """
             query Endpoints {

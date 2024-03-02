@@ -35,7 +35,7 @@ After obtaining a key, set it as an environment variable:
 ```bash
 export RUNPOD_API_KEY=<YOUR-API-KEY>
 ```
-#### Configure Template
+### Configure Template
 
 Before spinning up a serverless endpoint, let's first configure a template that we'll pass into the endpoint during staging. The template allows you to select a serverless or pod asset, your docker image name, and the container's and volume's disk space.
 
@@ -57,12 +57,13 @@ template_data = runpod.set_template(
     volume_disk=15,
 )
 ```
-Push template to your RunPod account:
+### Push Template to RunPod
+
 ```py
 template = runpod(api_key, data=template_data)
 print(template().text)
 ```
-#### Configure Endpoint
+### Configure Endpoint
 
 After your template is created, it will return a data dicitionary that includes your template ID. We will pass this template id when configuring the serverless endpoint in the section below:
 
@@ -79,7 +80,8 @@ endpoint_data = runpod.create_serverless_endpoint(
 )
 ```
 
-Boot up your endpoint on RunPod:
+### Start Endpoint on RunPod
+
 ```py
 endpoint = runpod(api_key, data=endpoint_data)
 print(endpoint().text)
